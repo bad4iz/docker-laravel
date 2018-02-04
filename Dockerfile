@@ -29,10 +29,13 @@ RUN  curl -sL https://deb.nodesource.com/setup_9.x | bash - && \
 #
 #
 
-#RUN chmod -R 777 .
+COPY . /var/www/html
 
-#RUN composer install
+
+RUN composer install
 
 RUN sed -i 's/DocumentRoot.*$/DocumentRoot \/var\/www\/html\/public/' /etc/apache2/sites-enabled/000-default.conf
 
 RUN a2enmod rewrite
+
+RUN chmod -R 777 .
