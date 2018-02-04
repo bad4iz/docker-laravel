@@ -1,0 +1,5 @@
+docker build -t laravel:1 .
+docker run -d --rm --name laravel -v $(pwd):/var/www/html/ -v /var/www/html/vendor -p 8080:80 laravel:1
+
+
+172.17.0.1:3308
